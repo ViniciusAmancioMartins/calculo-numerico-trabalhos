@@ -33,7 +33,7 @@ Como os códigos fazem uso da biblioteca matemática padrão do C (`<math.h>` pa
 Abra o seu terminal e execute os comandos abaixo:
 
 ### Para o Trabalho 1 (Gauss)
-bash
+
 # Compilando
 gcc gauss_determinante.c -o gauss -lm
 
@@ -41,7 +41,7 @@ gcc gauss_determinante.c -o gauss -lm
 ./gauss
 
 ### Para o Trabalho 2 (Gauss-Seidel)
-bash
+
 # Compilando
 gcc gauss_seidel.c -o seidel -lm
 
