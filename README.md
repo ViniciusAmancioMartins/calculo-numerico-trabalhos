@@ -48,7 +48,8 @@ gcc gauss_seidel.c -o seidel -lm
 # Executando
 ./seidel
 
-Como Usar
+# Como Usar
+
 Ao executar qualquer um dos programas, o terminal solicitará as informações passo a passo:
 
 Digite a ordem da matriz (ex: 3 para uma matriz 3x3).
