@@ -69,7 +69,7 @@ void eliminacaoGauss(double mat[10][10], int n, int *trocas) {
         // Processo de eliminação (zerar elementos abaixo do pivô)
         for (int i = k + 1; i < n; i++) {
             double m = -mat[i][k] / mat[k][k];
-            mat[i][k] = 0.0; // Zera explicitamente
+            mat[i][k] = 0.0; // Zera explicitamente por conta de arredondamento do computador
             
             for (int j = k + 1; j < n; j++) {
                 mat[i][j] = mat[i][j] + m * mat[k][j];
