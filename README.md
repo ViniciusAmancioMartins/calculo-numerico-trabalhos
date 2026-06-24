@@ -28,7 +28,7 @@ Este repositório contém dois trabalhos principais:
 
 ## ⚙️ Como Compilar e Executar
 
-Como os códigos fazem uso da biblioteca matemática padrão do C (`<math.h>` para a função `fabs`), é estritamente necessário utilizar a flag `-lm` durante a compilação no GCC.
+Como os códigos fazem uso da biblioteca matemática padrão do C (`<math.h>` para a função `fabs`), é estritamente necessário utilizar a flag    `-lm` durante a compilação no GCC.
 
 Abra o seu terminal e execute os comandos abaixo:
 
