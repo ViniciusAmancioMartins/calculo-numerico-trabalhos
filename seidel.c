@@ -3,21 +3,21 @@
 #include <math.h>   // Necessário para o fabs() (módulo)
 #include <time.h>   // Necessário para o clock()
 
-// Apenas exibe o sistema na tela para conferência visual
+// Apenas exibe na tela para acompanhar as iterações
 void imprimirSistema(double A[10][10], double b[10], int n) {
     printf("\nSistema Linear Inicial (A | b):\n");
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++) {
-            printf("%9.7f ", A[i][j]); // %9.7f alinha as colunas
+            printf("%9.7f ", A[i][j]); // %9.7f 9 alinha as coluna. Formato 9 números, sendo 7 decimais
         }
         printf("| %9.7f\n", b[i]);
     }
     printf("\n");
 }
 
-// O motor matemático do Gauss-Seidel
+//Resolver sistema por Gauss-Seidel
 void resolverGaussSeidel(double A[10][10], double b[10], double x[10], int n, double precisao) {
-    double x_novo[10]; // Vetor rascunho para os cálculos da rodada atual
+    double x_novo[10]; // Vetor para os cálculos da iteração atual
     
     // Valor inicial falso apenas para garantir que o while rode a primeira vez
     double erro = precisao + 1.0; 
@@ -30,18 +30,18 @@ void resolverGaussSeidel(double A[10][10], double b[10], double x[10], int n, do
         printf("x[%d] = %.7f\n", i + 1, x[i]);
     }
     printf("\n");
-
-    // Condição de parada: Erro tem que ficar menor que a precisão
+    
+    // Condição de parada: Erro tem que ficar menor que a precisão, ps: utilizado cálculo de erro relativo
     while (erro > precisao && iteracao <= max_iteracoes) {
-        double max_dif = 0.0;     // Guardará o numerador do erro relativo
-        double max_x_novo = 0.0;  // Guardará o denominador do erro relativo
+        double max_dif = 0.0;     // Guardará o numerador do erro 
+        double max_x_novo = 0.0;  // Guardará o denominador do erro 
 
         for (int i = 0; i < n; i++) {
             double soma = 0.0;
             for (int j = 0; j < n; j++) {
                 if (j != i) { // Ignora a diagonal principal (ela é quem será isolada)
                     
-                    // Coração de todo o método de Gauss-Seidel:
+                    // Coração de todo o método de Gauss-Seidel que difere o de Jacobi para convergir para a tolerância do erro selecionado:
                     if (j < i) {
                         soma += A[i][j] * x_novo[j]; // Usa o valor recém-atualizado nesta mesma rodada
                     } else {
